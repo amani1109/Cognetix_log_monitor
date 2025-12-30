@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import smtplib
 from email.message import EmailMessage
 
-# ---------------- CONFIGURATION ----------------
+
 LOG_FILE = "server.log"
 INCIDENT_LOG = "incident.log"
 
@@ -23,9 +23,7 @@ EMAIL_CONFIG = {
     "password": "your_email_password",
     "receiver": "admin@example.com"
 }
-# ------------------------------------------------
 
-# Setup incident logging
 logging.basicConfig(
     filename=INCIDENT_LOG,
     level=logging.INFO,
@@ -93,3 +91,4 @@ if __name__ == "__main__":
         monitor_log()
     except KeyboardInterrupt:
         print("\n[!] Log monitoring stopped.")
+
