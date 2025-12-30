@@ -11,10 +11,10 @@ LOG_FILE = "server.log"
 INCIDENT_LOG = "incident.log"
 
 FAILED_LOGIN_PATTERN = re.compile(r"Failed password.*from (\d+\.\d+\.\d+\.\d+)")
-ALERT_THRESHOLD = 5           # Failed attempts
-TIME_WINDOW = 60              # Seconds
+ALERT_THRESHOLD = 5           
+TIME_WINDOW = 60              
 
-ENABLE_EMAIL_ALERTS = False   # Set True to enable email alerts
+ENABLE_EMAIL_ALERTS = False  
 
 EMAIL_CONFIG = {
     "smtp_server": "smtp.gmail.com",
@@ -66,7 +66,7 @@ def process_log_line(line):
         attempts = failed_attempts[ip]
         attempts.append(now)
 
-        # Remove old attempts
+        
         while attempts and (now - attempts[0]).seconds > TIME_WINDOW:
             attempts.popleft()
 
@@ -91,4 +91,5 @@ if __name__ == "__main__":
         monitor_log()
     except KeyboardInterrupt:
         print("\n[!] Log monitoring stopped.")
+
 
